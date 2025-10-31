@@ -1,7 +1,22 @@
 ---
-layout: layout.liquid
-title: 11ty Boilerplate
+title: Everyday Carry
+layout: layout
 ---
 
-<h1>Yet Another 11ty <strong>Boilerplate</strong></h1>
-<img alt="pine" src="/images/pine.png" width="50" />
+<h2>My Everyday Essentials</h2>
+<p class="intro">
+  These are three things I never leave home without:
+  {% highlight "Wallet" %}, {% highlight "Keys" %}, and {% highlight "Hat" %}.
+</p>
+
+<div class="grid">
+  {%- for item in collections.carry -%}
+  <div class="card">
+    <a href="{{ item.url }}">
+      <img src="{{ item.data.image }}" alt="{{ item.data.title }}">
+      <h3>{{ item.data.title }}</h3>
+      <p>{{ item.data.short }}</p>
+    </a>
+  </div>
+  {%- endfor -%}
+</div>
